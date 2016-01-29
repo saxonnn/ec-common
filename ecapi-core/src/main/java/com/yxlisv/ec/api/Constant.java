@@ -9,58 +9,34 @@ import com.yxlisv.util.math.NumberUtil;
 import com.yxlisv.util.resource.PropertiesUtil;
 
 /**
- * 电子商务常量类
+ * 电子商务API常量类
  * @author yxl
  */
 public abstract class Constant {
 	
 	final private static Properties properties = PropertiesUtil.readProperties("ecapi.properties", Constant.class);//配置文件
-	public static String appAddr;//应用测试地址
-	public static String albumName;//相册名称
-	static{
-		appAddr = PropertiesUtil.get("appAddr", properties);
-		albumName = PropertiesUtil.get("albumName", properties);
-	}
+	public static String appAddr = PropertiesUtil.get("appAddr", properties);//应用测试地址
+	public static String albumName = PropertiesUtil.get("albumName", properties);//相册名称
 	
 	//淘宝的应用配置
-	public static String tbAppKey;//appkey的值
-	public static String tbAppSecret ;//淘宝应用密钥
-	public static String tbOAuthUrl;//淘宝应用授权地址
-	public static String tbOAuthTokenUrl ;//淘宝应用授权token获取地址
-	public static String tbApiUrl;//淘宝API调用地址 http://gw.api.taobao.com/router/rest
-	public static int tbConnectTimeout = 30000;//请求连接超时时间(毫秒)
-	public static int tbReadTimeout = 10000;//读取数据超时时间(毫秒)
-	static{
-		tbAppKey = PropertiesUtil.get("tbAppKey", properties);
-		tbAppSecret = PropertiesUtil.get("tbAppSecret", properties);
-		tbOAuthUrl = PropertiesUtil.get("tbOAuthUrl", properties);
-		tbOAuthTokenUrl = PropertiesUtil.get("tbOAuthTokenUrl", properties);
-		tbApiUrl = PropertiesUtil.get("tbApiUrl", properties);
-		tbConnectTimeout = NumberUtil.parseInt(PropertiesUtil.get("tbConnectTimeout", properties));
-		tbReadTimeout = NumberUtil.parseInt(PropertiesUtil.get("tbReadTimeout", properties));
-	}
+	public static String tbAppKey = PropertiesUtil.get("tbAppKey", properties);//appkey的值
+	public static String tbAppSecret = PropertiesUtil.get("tbAppSecret", properties) ;//淘宝应用密钥
+	public static String tbOAuthUrl = PropertiesUtil.get("tbOAuthUrl", properties);//淘宝应用授权地址
+	public static String tbOAuthTokenUrl = PropertiesUtil.get("tbOAuthTokenUrl", properties) ;//淘宝应用授权token获取地址
+	public static String tbApiUrl = PropertiesUtil.get("tbApiUrl", properties);//淘宝API调用地址 http://gw.api.taobao.com/router/rest
+	public static int tbConnectTimeout = NumberUtil.parseInt(PropertiesUtil.get("tbConnectTimeout", properties));//请求连接超时时间(毫秒)
+	public static int tbReadTimeout = NumberUtil.parseInt(PropertiesUtil.get("tbReadTimeout", properties));//读取数据超时时间(毫秒)
 	
 	//阿里巴巴的应用配置
-	public static String albbAppKey;//appkey的值
-	public static String albbAppSecret;//阿里巴巴应用密钥
-	public static String albbOAuthUrl;//阿里巴巴应用授权地址
-	public static String albbOAuthTokenUrl;//阿里巴巴应用授权token获取地址，还需要拼接一个参数code，code为授权完成后返回的一次性令牌
-	public static String albbApiUrl;//阿里巴巴API调用地址，还需要附加2个参数：_aop_signature 请求签名， access_token，访问用户隐私数据时的权限标识
-	public static String albbApiUrl2;//阿里巴巴API调用地址第二部分 protocol/version/namespace/
-	public static String albbPicUrl;//阿里巴巴API调用地址第二部分 protocol/version/namespace/  http://i00.c.aliimg.com/
-	public static int albbConnectTimeout = 30000;//请求连接超时时间(毫秒)
-	public static int albbReadTimeout = 10000;//读取数据超时时间(毫秒)
-	static{
-		albbAppKey = PropertiesUtil.get("albbAppKey", properties);
-		albbAppSecret = PropertiesUtil.get("albbAppSecret", properties);
-		albbOAuthUrl = PropertiesUtil.get("albbOAuthUrl", properties) + CommonUtil.getOAuthSignature();
-		albbOAuthTokenUrl = PropertiesUtil.get("albbOAuthTokenUrl", properties);
-		albbApiUrl = PropertiesUtil.get("albbApiUrl", properties);
-		albbApiUrl2 = PropertiesUtil.get("albbApiUrl2", properties);
-		albbPicUrl = PropertiesUtil.get("albbPicUrl", properties);
-		albbConnectTimeout = NumberUtil.parseInt(PropertiesUtil.get("albbConnectTimeout", properties));
-		albbReadTimeout = NumberUtil.parseInt(PropertiesUtil.get("albbReadTimeout", properties));
-	}
+	public static String albbAppKey = PropertiesUtil.get("albbAppKey", properties);//appkey的值
+	public static String albbAppSecret = PropertiesUtil.get("albbAppSecret", properties);//阿里巴巴应用密钥
+	public static String albbOAuthUrl = PropertiesUtil.get("albbOAuthUrl", properties) + CommonUtil.getOAuthSignature();//阿里巴巴应用授权地址
+	public static String albbOAuthTokenUrl = PropertiesUtil.get("albbOAuthTokenUrl", properties);//阿里巴巴应用授权token获取地址，还需要拼接一个参数code，code为授权完成后返回的一次性令牌
+	public static String albbApiUrl = PropertiesUtil.get("albbApiUrl", properties);//阿里巴巴API调用地址，还需要附加2个参数：_aop_signature 请求签名， access_token，访问用户隐私数据时的权限标识
+	public static String albbApiUrl2 = PropertiesUtil.get("albbApiUrl2", properties);//阿里巴巴API调用地址第二部分 protocol/version/namespace/
+	public static String albbPicUrl = PropertiesUtil.get("albbPicUrl", properties);//阿里巴巴API调用地址第二部分 protocol/version/namespace/  http://i00.c.aliimg.com/
+	public static int albbConnectTimeout = NumberUtil.parseInt(PropertiesUtil.get("albbConnectTimeout", properties));//请求连接超时时间(毫秒)
+	public static int albbReadTimeout = NumberUtil.parseInt(PropertiesUtil.get("albbReadTimeout", properties));//读取数据超时时间(毫秒)
 	
 	//拍拍的应用配置
 	public static String paipaiAppKey = "700146600";//appkey的值
