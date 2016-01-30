@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yxlisv</groupId>
 	<artifactId>ecapi-authorize</artifactId>
-	<version>1.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<description>电商接口授权</description>
 
 	<properties>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>com.yxlisv</groupId>
 			<artifactId>ecapi-core</artifactId>
-			<version>1.0</version>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
