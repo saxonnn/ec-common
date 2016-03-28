@@ -79,15 +79,16 @@ public class AlibbApiUtil {
 				throw new MessageException(errorStr, "error.alibb." + errorCode);
 			}
 			
+			
 			//另外一种错误格式
 			if(jsonObject.has("result") && jsonObject.getJSONObject("result").has("success") && !jsonObject.getJSONObject("result").getBoolean("success")){
 				if(jsonObject.has("code")) {
-					String code = jsonObject.getString("code");
+					String code = jsonObject.get("code") + "";
 					code = code.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "");
 					//一些错误码可以重新尝试
 					//09008:uploadImageerror
 					//090008:deleteimageerror
-					String repeatErrorCode = "#09008#090008#";
+					String repeatErrorCode = "#09008#";
 					if(repeatErrorCode.contains("#"+code+"#") && repeatCount<5){//上传图片失败
 						repeatCount++;
 						return sendPost(url, paramMap, fileParams, repeatCount);
@@ -95,6 +96,10 @@ public class AlibbApiUtil {
 					String alibbError = "error.alibb."+code;
 					String i18nErrorStr = I18nUtil.getString(alibbError, "errors");
 					if(i18nErrorStr != null && !i18nErrorStr.equals("")) alibbError = i18nErrorStr;
+					else if(jsonObject.has("message")){
+						alibbError = jsonObject.get("message") + "";
+						alibbError = alibbError.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "");
+					}
 					throw new MessageException(alibbError);
 				}
 			}
