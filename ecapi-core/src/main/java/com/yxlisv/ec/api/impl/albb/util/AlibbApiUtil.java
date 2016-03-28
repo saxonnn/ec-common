@@ -66,7 +66,12 @@ public class AlibbApiUtil {
 			try{
 				errorCode = jsonObject.getString("error_code");
 				errorStr = jsonObject.getString("error_message");
-			} catch(Exception e){}
+			} catch(Exception e){
+				if(jsonObject.toString().contains("error")){
+					errorStr = jsonObject.getJSONArray("message").getString(0);
+					errorCode = jsonObject.getJSONArray("code").getString(0);
+				}
+			}
 			if(errorCode!=null && !errorCode.equals("")) {
 				String alibbError = "error.alibb."+errorCode;
 				String i18nErrorStr = I18nUtil.getString(alibbError, "errors");
