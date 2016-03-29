@@ -58,7 +58,11 @@ public class PicApiService extends AbstractBaseService implements IPicApiService
 			}
 		} catch (Exception e) {
 			logger.error("上传图片失败", e);
-			throw new MessageException(e.getMessage());
+			String message = e.getMessage();
+			if(message.contains("image") && message.contains("full") && message.contains("album")) {
+				message = "相册图片已满，上传失败";
+			}
+			throw new MessageException(message);
 		}
 		return resultMap;
 	}
@@ -99,7 +103,11 @@ public class PicApiService extends AbstractBaseService implements IPicApiService
 						file.delete();
 					}
 				} catch (Exception e) {
-					throw new MessageException(e.getMessage());
+					String message = e.getMessage();
+					if(message.contains("image") && message.contains("full") && message.contains("album")) {
+						message = "相册图片已满，上传失败";
+					}
+					throw new MessageException(message);
 				}
 			}
 		}
