@@ -322,7 +322,6 @@ public class PicApiService extends AbstractBaseService implements IPicApiService
 	@Override
 	public void updateSkuImg(String goodsId, String newSkuStr,
 			String accessToken) {
-		// TODO Auto-generated method stub
 		
 	}
 }
