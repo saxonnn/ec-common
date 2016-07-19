@@ -16,7 +16,7 @@ import com.yxlisv.ec.api.Constant;
 import com.yxlisv.ec.api.IGoodsApiService;
 import com.yxlisv.ec.api.impl.tb.util.TbApiUtil;
 import com.yxlisv.service.AbstractBaseService;
-import com.yxlisv.util.Page;
+import com.yxlisv.util.data.Page;
 import com.yxlisv.util.exception.MessageException;
 import com.yxlisv.util.map.MapUtil;
 import com.yxlisv.util.string.JsonUtil;

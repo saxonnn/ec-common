@@ -18,7 +18,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 * 获取应用平台key
 	 */
 	public String getAppPlatformKey() {
-		return this.getFromSession("appPlatformKey").toString();
+		return getSession().getAttribute("appPlatformKey").toString();
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 * @throws JSONException
 	 */
 	public String getAccessToken() {
-		Map tokenMap = (Map) this.getFromSession("tokenMap");
+		Map tokenMap = (Map) getSession().getAttribute("tokenMap");
 		return tokenMap.get("access_token") + "";
 	}
 	
@@ -35,7 +35,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 * @autor yxl
 	 */
 	public Map getTokenMap(){
-		return (Map) this.getFromSession("tokenMap");
+		return (Map) getSession().getAttribute("tokenMap");
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 * @autor yxl
 	 */
 	public Map getUserSellerMap(){
-		return (Map) this.getFromSession("userSellerMap");
+		return (Map) getSession().getAttribute("userSellerMap");
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 * @autor yxl
 	 */
 	public String getNick(){
-		Map userSellerMap = (Map) this.getFromSession("userSellerMap");
+		Map userSellerMap = (Map) getSession().getAttribute("userSellerMap");
 		return userSellerMap.get("nick") + "";
 	}
 	
@@ -61,7 +61,7 @@ public class EcBaseControl extends AbstractBaseControl{
 	 */
 	public String getUserApiId(){
 		String userId = "";
-		Map userSellerMap = (Map) this.getFromSession("userSellerMap");
+		Map userSellerMap = (Map) getSession().getAttribute("userSellerMap");
 		if(userSellerMap.get("memberId") != null) userId =  userSellerMap.get("memberId").toString();
 		else if(userSellerMap.get("uid") != null) userId =  userSellerMap.get("uid").toString();
 		else if(userSellerMap.get("uin") != null) userId =  userSellerMap.get("uin").toString();

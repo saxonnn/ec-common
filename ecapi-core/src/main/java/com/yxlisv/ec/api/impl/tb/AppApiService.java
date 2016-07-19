@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yxlisv.ec.api.IAppApiService;
 import com.yxlisv.service.AbstractBaseService;
-import com.yxlisv.util.Page;
+import com.yxlisv.util.data.Page;
 
 /**
  * 淘宝App API服务

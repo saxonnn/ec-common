@@ -2,7 +2,7 @@ package com.yxlisv.ec.api;
 
 import java.util.Map;
 
-import com.yxlisv.util.Page;
+import com.yxlisv.util.data.Page;
 
 /**
  * APP的api服务

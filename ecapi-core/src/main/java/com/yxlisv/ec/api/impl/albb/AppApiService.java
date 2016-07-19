@@ -15,7 +15,7 @@ import com.yxlisv.ec.api.Constant;
 import com.yxlisv.ec.api.IAppApiService;
 import com.yxlisv.ec.api.impl.albb.util.AlibbApiUtil;
 import com.yxlisv.service.AbstractBaseService;
-import com.yxlisv.util.Page;
+import com.yxlisv.util.data.Page;
 import com.yxlisv.util.date.DateUtil;
 import com.yxlisv.util.map.MapUtil;
 import com.yxlisv.util.string.JsonUtil;
